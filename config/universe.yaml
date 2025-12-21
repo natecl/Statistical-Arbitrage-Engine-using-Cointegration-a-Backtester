@@ -1,0 +1,66 @@
+
+# Defines economically valid asset groupings for statistical arbitrage.
+# Principle: statistics filter relationships — they do not create them.
+
+version: 1
+
+universe:
+  - name: index_us_largecap
+    asset_class: etf
+    economic_group: same_index
+    tickers: [SPY, IVV, VOO]
+    rationale: These ETFs all track the S&P 500 large-cap U.S. equity index, so any divergence is primarily driven by tracking error, flows, or microstructure effects and is expected to mean-revert.
+
+  - name: index_us_total_market
+    asset_class: etf
+    economic_group: same_index
+    tickers: [VTI, ITOT]
+    rationale: Both ETFs track the total U.S. equity market, making deviations largely attributable to index construction and fund mechanics rather than fundamental differences.
+
+  - name: index_us_nasdaq
+    asset_class: etf
+    economic_group: same_index
+    tickers: [QQQ, QQQM]
+    rationale: These ETFs track the NASDAQ-100 index, so relative mispricing reflects tracking error and liquidity differences rather than divergent economic exposure.
+
+  - name: sector_us_technology
+    asset_class: etf
+    economic_group: same_sector
+    tickers: [XLK, VGT, IYW]
+    rationale: All funds represent U.S. technology equities and are driven by the same earnings, rate, and growth expectations, making relative spreads suitable for mean reversion.
+
+  - name: sector_us_financials
+    asset_class: etf
+    economic_group: same_sector
+    tickers: [XLF, VFH, IYF]
+    rationale: These ETFs track the U.S. financial sector and respond similarly to interest rates, credit conditions, and regulatory changes, supporting stable relative relationships.
+
+  - name: sector_us_healthcare
+    asset_class: etf
+    economic_group: same_sector
+    tickers: [XLV, VHT, IYH]
+    rationale: Each ETF represents U.S. healthcare equities, with shared exposure to demographics, policy, and earnings cycles that anchor long-run price relationships.
+
+  - name: sector_us_energy
+    asset_class: etf
+    economic_group: same_sector
+    tickers: [XLE, VDE, IYE]
+    rationale: These funds track U.S. energy companies and are primarily driven by oil prices and global demand, making relative deviations largely non-structural.
+
+  - name: sector_us_consumer_discretionary
+    asset_class: etf
+    economic_group: same_sector
+    tickers: [XLY, VCR]
+    rationale: Both ETFs represent U.S. consumer discretionary equities and are influenced by consumer spending and economic cycles, supporting convergence over time.
+
+  - name: sector_us_industrials
+    asset_class: etf
+    economic_group: same_sector
+    tickers: [XLI, VIS]
+    rationale: These ETFs track U.S. industrial companies that respond similarly to economic growth, capital expenditure cycles, and trade conditions.
+
+  - name: sector_us_utilities
+    asset_class: etf
+    economic_group: same_sector
+    tickers: [XLU, VPU]
+    rationale: Both ETFs represent regulated U.S. utilities, whose cash-flow stability and rate sensitivity create persistent, mean-reverting relative price behavior.
